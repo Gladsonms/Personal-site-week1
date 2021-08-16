@@ -204,24 +204,27 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <form>
+                    <form id="gform" method="POST" action="https://script.google.com/macros/s/AKfycbxqeL4Dw3JtyLmmzW0AXjJDTxQtmQ8Sc0ZGTn_o2raFt_gNhJUOrJcW4l8XEfRY5byu/exec">
                         <h1 class="align-item-center">Contact Me</h1>
                         <div class="form-group">
                           <label for="exampleFormControlInput1">Email address</label>
-                          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                          <input type="email" class="form-control" id="exampleFormControlInput1" name="email" placeholder="name@example.com">
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput3">Name</label>
-                            <input type="text"class="form-control"   id="exampleFormControlInput3" placeholder="jackson">
+                            <input type="text"class="form-control"   id="exampleFormControlInput3" name="username" placeholder="jackson">
                         </div>
                          <div class="form-group">
                              <label for="exampleFormControlInput2">Phone Number</label>
-                             <input type="number" name="" id="exampleFormControlInput2" class="form-control" placeholder="9021893178">
+                             <input type="number" id="exampleFormControlInput2" name="number" class="form-control" placeholder="9021893178">
                          </div>
                         
                         <div class="form-group">
                           <label for="exampleFormControlTextarea1">Message</label>
-                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                          <textarea class="form-control" id="exampleFormControlTextarea1" name="message" rows="3"></textarea>
+                        </div>
+                        <div class="btn">
+                            <button class="btn btn-primary">Submit</button>
                         </div>
                       </form>
                 </div>
