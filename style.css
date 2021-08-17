@@ -29,3 +29,7 @@ input::-webkit-inner-spin-button {
 {
     line-height: 30px;
 }
+.navbar
+{
+    z-index: 1;
+}
