@@ -6,10 +6,13 @@ body{
     background-color:rgb(236, 230, 230);
 }
 #img-pic{
-    width: 75%;
+    width: 55%;
     height: 50%;
     
 }
+html {
+    scroll-behavior: smooth;
+  }
 #img{
     width: 75%;
     height: 50%;
