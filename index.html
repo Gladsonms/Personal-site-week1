@@ -225,17 +225,17 @@
                         <h1 class="align-item-center">Contact Me</h1>
                         <div class="form-group">
                           <label for="exampleFormControlInput1">Email address</label>
-                          <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+                          <input type="email" class="form-control" id="email" name="email" placeholder="">
                           <div class="text-danger" id="error_mail"></div>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput3">Name</label>
-                            <input type="text"class="form-control"   id="name" name="username" placeholder="jackson">
+                            <input type="text"class="form-control"   id="name" name="username" placeholder="">
                             <div class="text-danger" id="error_name"></div>
                         </div>
                          <div class="form-group">
                              <label for="exampleFormControlInput2">Phone Number</label>
-                             <input type="number" id="phone" name="number" class="form-control" placeholder="9021893178">
+                             <input type="number" id="phone" name="number" class="form-control" placeholder="">
                              <div class="text-danger" id="error_phone"></div>
                          </div>
                         
@@ -292,7 +292,19 @@
              e.preventDefault();
          }
          });
-     </script>    
+     </script>   
+     <script>
+         $document.ready(function()
+         {
+             $("#phone").keypress(function(){
+                 if(this.value.length==10)
+                 {
+                     return false;
+                 }
+             })
+         })
+         
+     </script> 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
