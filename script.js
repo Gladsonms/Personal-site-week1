@@ -2,7 +2,7 @@
    
     var text;
     var nameRegex=/^[a-zA-Z ]+$/;
-    var emailRegex=/"^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"/
+    var emailRegex=/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/
     // Check name
     var nameField=document.getElementById("name")
     nameField.addEventListener("blur",()=>
@@ -58,13 +58,13 @@
             
         }
     
-        if(email.indexOf("@")== -1 || email.length<6 || !email.match(emailRegex)){
+        else if(!email.match(emailRegex)){
             text="Please Enter Valid E-mail";
             mailError.innerHTML = text;
            
         }else{
-            text=" "
-            mailError.innerHTML=text;
+            
+            mailError.innerHTML=" ";
         } 
     
     })
