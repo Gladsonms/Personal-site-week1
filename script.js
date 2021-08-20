@@ -1,45 +1,62 @@
 
-////To check Name///
+////To check Name  in form
 var nameField = document.getElementById('name')
 var validname=false;
 
-nameField.addEventListener('blur', () => {
+
+nameField.addEventListener('input', () => {
     var name = nameField.value
+    var nameRegex=/^[a-zA-Z]+$/ 
+
     if(name.length==0){
         text="Please Enter your Name";
         nameError.innerHTML = text;
         validname=false;
-    } else if(name.length<4){
-        nameError.innerHTML="Name should be more than 3 Characters"
+    } 
+    else if(name.length<5){
+        console.log(name.length);
+        nameError.innerHTML="Name should be more than 4 Characters"
         validname=false;
-    }else{validname=true;
+    }
+    else if(name.includes('  ')){
+        nameError.innerHTML="Name should not contain 2 concecutive spaces"
+        validname=false;
+
+
+    }
+    else if(!name.match(nameRegex))
+    {
+        text="Name Should not contain numeric value"
+        nameError.innerHTML=text;
+        return false;
+    }
+    else{
+
+        validname=true;
+        nameError.innerHTML=" ";
    
 }
 })
-nameField.addEventListener('keyup',()=>{
-    var name = nameField.value
-     if(name.includes('  ')){
-         validname=false;
-         nameError.innerHTML="Name should not contain 2 concecutive spaces"
-
-     }else{
-         validname=true;
-         nameError.innerHTML=" "
+// nameField.addEventListener('keyup',()=>{
+//     var name = nameField.value
+//      else{
+//          validname=true;
+//          nameError.innerHTML=" "
        
-     }
-})
+//      }
+// })
 
-////To check phone number////
+////To Check Number is valid or not
 var phoneField = document.getElementById('phone')
 var validphone=false;
-phoneField.addEventListener('blur',()=>{
+phoneField.addEventListener('input',()=>{
     var phone=phoneField.value
     if(isNaN(phone) || phone.length==0){
          validphone=false;
         text="This field should not be blank";
         phoneError.innerHTML = text;
    
-} else if(isNaN(phone) || phone.length<10){
+} else if(isNaN(phone) || phone.length!=10){
      validphone=false;
     text="Please Enter Valid Number";
     phoneError.innerHTML = text;
@@ -50,7 +67,7 @@ phoneField.addEventListener('blur',()=>{
 }     
 })
 
-//////To check email///////
+//////To check email vlaid or not
 var emailField = document.getElementById('email')
 var validmail=false;
 emailField.addEventListener('blur',()=>{
@@ -71,7 +88,7 @@ emailField.addEventListener('blur',()=>{
     }
     
 })
-//////To check message////////
+//////To check message is on or present or not
 var messageField=document.getElementById('message')
 var validmessage=false;
 messageField.addEventListener('blur',()=>{
@@ -152,5 +169,8 @@ function mail() {
 
             }
         })
+    }
+    else{
+        alert("please fill all the field")
     }
 }
