@@ -24,7 +24,7 @@
 <body>
     <header class="bg-primary container-fulid  ">
       
-        <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top d-print " >
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top d-print" >
 
             <a class="navbar-brand" href="#" id="NavText">Gladson M S</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -221,12 +221,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <form id="submit-form"  action=""  onsubmit="event.preventDefault(); return validation();">
+                    <form id="submit-form"  action=""  onsubmit="mail()">
                         <h1 class="align-item-center">Contact Me</h1>
                         <div class="form-group">
                           <label for="exampleFormControlInput1">Email address</label>
                           <input type="email" class="form-control" id="email" name="email" placeholder="">
-                          <div class="text-danger" id="mailError"></div>
+                          <span class="text-danger" id="mailError"></span>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput3">Name</label>
@@ -235,17 +235,17 @@
                         </div>
                          <div class="form-group">
                              <label for="exampleFormControlInput2">Phone Number</label>
-                             <input type="number" id="phone" name="number" class="form-control" placeholder="">
-                             <div class="text-danger" id="phoneError"></div>
+                             <input type="number" id="phone" name="number" class="form-control" placeholder="" maxlength="10">
+                             <span class="text-danger" id="phoneError"></span>
                          </div>
                         
                         <div class="form-group">
                           <label for="exampleFormControlTextarea1">Message</label>
                           <textarea class="form-control" id="message" name="message" rows="3"></textarea>
-                          <div class="text-danger" id="messageError"></div>
+                          <span class="text-danger" id="messageError"></span>
                         </div>
                         <div class="btn">
-                            <button class="btn btn-primary " type="submit">Submit</button>
+                            <button class="btn btn-primary " type="submit" id="submit-btn">Submit</button>
                         </div>
                       </form>
                 </div>
@@ -273,6 +273,8 @@
 
     
     <script>
+        var form = document.getElementById('submit-form')
+        form.addEventListener('submit',(e)=>{e.preventDefault()})
         var inputBox = document.getElementById("phone");
  
          var invalidChars = [

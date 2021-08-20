@@ -1,110 +1,146 @@
-    
+
+////To check Name///
+var nameField = document.getElementById('name')
+var validname=false;
+
+nameField.addEventListener('blur', () => {
+    var name = nameField.value
+    if(name.length==0){
+        text="Please Enter your Name";
+        nameError.innerHTML = text;
+        validname=false;
+    } else if(name.length<4){
+        nameError.innerHTML="Name should be more than 3 Characters"
+        validname=false;
+    }else{validname=true;
    
-    var text;
-    var nameRegex=/^[a-zA-Z ]+$/;
-    var emailRegex=/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/
-    // Check name
-    var nameField=document.getElementById("name")
-    nameField.addEventListener("blur",()=>
-    {
-        var name = nameField.value
-        if(name.length==0){
-            text="Please Enter your Name";
-            nameError.innerHTML = text;
-            
-        } else if(name.length<3||name.length>20||name.includes('  ')|| !name.match(nameRegex)){
-            text="Please Enter Valid Name";
-            nameError.innerHTML = text;
-            
-        }else{text=" "
-        nameError.innerHTML=text;
-    }
-    })
-    
-    //check phone
-    var phoneField=document.getElementById("phone");
-    phoneField.addEventListener("blur",()=>{
-        var phone=phoneField.value
-        if(isNaN(phone) || phone.length==0 || phone.includes('e')){
-            text="Please Enter your Number";
-            phoneError.innerHTML = text;
-            
-    }    
-    
-    
-        if(isNaN(phone) || phone.length!=10){
-            text="Please Enter Valid Number";
-            phoneError.innerHTML = text;
-            
-        }else{
-            text=" "
-            phoneError.innerHTML=text;
-        }
-    
+}
+})
+nameField.addEventListener('keyup',()=>{
+    var name = nameField.value
+     if(name.includes('  ')){
+         validname=false;
+         nameError.innerHTML="Name should not contain 2 concecutive spaces"
 
-    })
-  
-    
-
-
-  //check mail
-    var emailField=document.getElementById("email");
-
-    emailField.addEventListener("blur",()=>{
-        var email = emailField.value;
-        if(email.length==0){
-            text="Please Enter Your E-mail";
-            mailError.innerHTML = text;
-            
-        }
-    
-        else if(!email.match(emailRegex)){
-            text="Please Enter Valid E-mail";
-            mailError.innerHTML = text;
-           
-        }else{
-            
-            mailError.innerHTML=" ";
-        } 
-    
-    })
-    
-    
-    
-      
-         //check messsage
-        var messageFiled=document.getElementById("message");
-        var message = messageFiled.value;
-        message.addEventListener("blur",()=>{
-    if(message.length==0){
-        text="Please Enter Your Message"
-        messageError.innerHTML = text;
-        
-    } 
-            if(message.length<=40){
-                text="Please Enter More Than 40 Characters"
-                messageError.innerHTML = text;
-                //return false;
-            }else{
-                text=" "
-                messageError.innerHTML=text;
-            }
-        
-        })
+     }else{
+         validname=true;
+         nameError.innerHTML=" "
        
+     }
+})
+
+////To check phone number////
+var phoneField = document.getElementById('phone')
+var validphone=false;
+phoneField.addEventListener('blur',()=>{
+    var phone=phoneField.value
+    if(isNaN(phone) || phone.length==0){
+         validphone=false;
+        text="This field should not be blank";
+        phoneError.innerHTML = text;
+   
+} else if(isNaN(phone) || phone.length<10){
+     validphone=false;
+    text="Please Enter Valid Number";
+    phoneError.innerHTML = text;
+   
+}else{
+    phoneError.innerHTML=" ";
+     validphone=true;
+}     
+})
+
+//////To check email///////
+var emailField = document.getElementById('email')
+var validmail=false;
+emailField.addEventListener('blur',()=>{
+    var email=emailField.value
+    var regexEmail = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
+    if(email.length==0){
+        text="This field cannot be empty";
+         validmail=false;
+         mailError.innerHTML = text;
+       
+    }else if (!email.match(regexEmail)) {
+        mailError.innerHTML = 'This email id is not valid.'
+        validmail=false;
+      } else {
+        validmail=true;
+        mailError.innerHTML = ''
+      
+    }
     
+})
+//////To check message////////
+var messageField=document.getElementById('message')
+var validmessage=false;
+messageField.addEventListener('blur',()=>{
+    var message=messageField.value
+    if(message.length<=25){
+        validmessage=false;
+        text="Please Enter More Than 25 Characters"
+        messageError.innerHTML = text;
+       
+    }else{
+        validmessage=true;
+        text=" "
+        messageError.innerHTML=text;
         
-    alert("Submitted Succesfully!")
-    data = {
-        name, phone, email, message }
-    mail(data)
+    }
+})
+
+
+  //////To check email///////
+var emailInput = document.getElementById('email')
+var validmail=false;
+emailInput.addEventListener('blur',()=>{
+    var email=emailInput.value
+    var regexEmail = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
+    if(email.length==0){
+        text="This field cannot be empty";
+         validmail=false;
+         mailError.innerHTML = text;
+       
+    }else if (!email.match(regexEmail)) {
+        mailError.innerHTML = 'This email id is not valid.'
+        validmail=false;
+      } else {
+        validmail=true;
+        mailError.innerHTML = ''
+      
+    }
+    
+})
+    
+    
+      //////To check message////////
+var messageField=document.getElementById('message')
+var validmessage=false;
+messageField.addEventListener('blur',()=>{
+    var message=messageField.value
+    if(message.length<=25){
+        validmessage=false;
+        text="Please Enter atleast More Than 30 Characters"
+        error_message.innerHTML = text;
+       
+    }else{
+        validmessage=true;
+        text=" "
+        error_message.innerHTML=text;
+        
+    }
+})
+  
 
 
 
-function mail(data) {
+
+function mail() {
+    
+    if(validname==true && validphone==true && validmail==true && validmessage==true){
         $.ajax({
             url:"https://script.google.com/macros/s/AKfycbxqeL4Dw3JtyLmmzW0AXjJDTxQtmQ8Sc0ZGTn_o2raFt_gNhJUOrJcW4l8XEfRY5byu/exec",
-            data:data,
+            data:$("#submit-form").serialize(),
             method:"post",
             success:function (response){
                 alert("Form submitted successfully")
@@ -116,4 +152,5 @@ function mail(data) {
 
             }
         })
+    }
 }
