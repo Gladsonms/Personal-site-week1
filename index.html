@@ -271,53 +271,61 @@
     </footer>
 
 
-    
-    <script>
-        var form = document.getElementById('submit-form')
-        form.addEventListener('submit',(e)=>{e.preventDefault()})
-        var inputBox = document.getElementById("phone");
- 
-         var invalidChars = [
-         "-",
-         "+",
-         "e",
-         ];
- 
-         inputBox.addEventListener("input", function() {
-         this.value = this.value.replace(/[e\+\-]/gi, "");
-         });
- 
-         inputBox.addEventListener("keydown", function(e) {
-         if (invalidChars.includes(e.key)) {
-             e.preventDefault();
-         }
-         });
-     </script>   
-     <script>
-         $document.ready(function()
-         {
-             $("#phone").keypress(function(){
-                 if(this.value.length==10)
-                 {
-                     return false;
-                 }
-             })
-         })
-         
-     </script> 
+   
+   
+     
      <script src="script.js"></script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        crossorigin="anonymous"></script> -->
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+
+
+        <script>
+            var form = document.getElementById('submit-form')
+            form.addEventListener('submit',(e)=>{e.preventDefault()})
+            var inputBox = document.getElementById("phone");
+     
+             var invalidChars = [
+             "-",
+             "+",
+             "e",
+             ];
+     
+             inputBox.addEventListener("input", function() {
+             this.value = this.value.replace(/[e\+\-]/gi, "");
+             });
+     
+             inputBox.addEventListener("keydown", function(e) {
+             if (invalidChars.includes(e.key)) {
+                 e.preventDefault();
+             }
+             });
+         </script>   
+         <script>
+             $(document).ready(function()
+             {
+                $('.navbar-collapse a').click(function(){
+                $(".navbar-collapse").collapse('hide');
+            });
+                 $("#phone").keypress(function(){
+                     if(this.value.length==10)
+                     {
+                         return false;
+                     }
+                 })
+             })
+             
+         </script> 
        
 </body>
 
