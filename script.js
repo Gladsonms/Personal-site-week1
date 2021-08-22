@@ -6,7 +6,7 @@ var validname=false;
 
 nameField.addEventListener('input', () => {
     var name = nameField.value
-    var nameRegex=/^[a-zA-Z]+$/ 
+    var nameRegex=/^[a-zA-Z ]+$/ 
 
     if(name.length==0){
         text="Please Enter your Name";
