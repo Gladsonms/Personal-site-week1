@@ -70,7 +70,7 @@ phoneField.addEventListener('input',()=>{
 //////To check email vlaid or not
 var emailField = document.getElementById('email')
 var validmail=false;
-emailField.addEventListener('blur',()=>{
+emailField.addEventListener('input',()=>{
     var email=emailField.value
     var regexEmail = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
     if(email.length==0){
@@ -91,7 +91,7 @@ emailField.addEventListener('blur',()=>{
 //////To check message is on or present or not
 var messageField=document.getElementById('message')
 var validmessage=false;
-messageField.addEventListener('blur',()=>{
+messageField.addEventListener('input',()=>{
     var message=messageField.value
     if(message.length<=25){
         validmessage=false;
@@ -110,7 +110,7 @@ messageField.addEventListener('blur',()=>{
   //////To check email///////
 var emailInput = document.getElementById('email')
 var validmail=false;
-emailInput.addEventListener('blur',()=>{
+emailInput.addEventListener('input',()=>{
     var email=emailInput.value
     var regexEmail = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
     if(email.length==0){
@@ -133,7 +133,7 @@ emailInput.addEventListener('blur',()=>{
       //////To check message////////
 var messageField=document.getElementById('message')
 var validmessage=false;
-messageField.addEventListener('blur',()=>{
+messageField.addEventListener('input',()=>{
     var message=messageField.value
     if(message.length<=25){
         validmessage=false;
