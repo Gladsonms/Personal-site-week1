@@ -37,14 +37,6 @@ nameField.addEventListener('input', () => {
    
 }
 })
-// nameField.addEventListener('keyup',()=>{
-//     var name = nameField.value
-//      else{
-//          validname=true;
-//          nameError.innerHTML=" "
-       
-//      }
-// })
 
 ////To Check Number is valid or not
 var phoneField = document.getElementById('phone')
@@ -130,28 +122,7 @@ emailInput.addEventListener('input',()=>{
 })
     
     
-      //////To check message////////
-var messageField=document.getElementById('message')
-var validmessage=false;
-messageField.addEventListener('input',()=>{
-    var message=messageField.value
-    if(message.length<=25){
-        validmessage=false;
-        text="Please Enter atleast More Than 30 Characters"
-        error_message.innerHTML = text;
-       
-    }else{
-        validmessage=true;
-        text=" "
-        error_message.innerHTML=text;
-        
-    }
-})
   
-
-
-
-
 function mail() {
     
     if(validname==true && validphone==true && validmail==true && validmessage==true){
