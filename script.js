@@ -171,6 +171,11 @@ function mail() {
         })
     }
     else{
-        alert("please fill all the field")
+        nameError.innerHTML="Please Enter this field ";
+        mailError.innerHTML = "Please Enter this field ";
+        phoneError.innerHTML="Please Enter this field";
+        messageError.innerHTML="Please Enter this field ";
+
+
     }
 }
